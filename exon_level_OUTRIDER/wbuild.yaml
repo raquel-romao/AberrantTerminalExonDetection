@@ -1,0 +1,12 @@
+---
+projectTitle: Run OUTRIDER exons
+htmlOutputPath: /s/project/first_last_exon/Data/output_data/outrider/html_outputs/StrandDiff
+scriptsPath: OUTRIDER
+fileRegex: .*
+fpkmCutoff: 1
+padjCutoff: 0.05
+zScoreCutoff: 0
+tissues: 
+  - Skin_-_Not_Sun_Exposed_Suprapubic
+implementation: pca
+maxTestedDimensionProportion: 3

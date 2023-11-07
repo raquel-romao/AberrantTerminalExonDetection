@@ -1,0 +1,51 @@
+# Configuration for HITindex Pipeline
+# This file contains the paths and parameters required for running the HITindex pipeline.
+# Adjust the parameters according to your specific analysis requirements.
+
+# Paths
+# ------
+# Define the paths to input data and output directories.
+# Ensure these directories exist or are accessible by the pipeline.
+
+gtf_path: "/path/to/gtf/file" # Path to the GTF file
+output_dir: "/path/to/output/dir/"  # Directory where output files will be saved
+annotation_file_path: "/path/to/sample/annotation/file.tsv" # Path to the sample annotation file
+
+# Tissue Selection
+# ----------------
+# Specify the tissue(s) to analyze. Uncomment the appropriate option.
+# Use 'null' to analyze all tissues, a single string for one tissue, or a list for multiple tissues.
+
+# For a single tissue:
+# tissue: "Heart_-_Left_Ventricle"
+
+# For multiple tissues:
+tissue:
+  - "Heart_-_Left_Ventricle"
+  - "Liver"
+
+# For all tissues:
+# tissue: null
+
+# HITindex Parameters
+# -------------------
+# These are the default parameters for HITindex analysis.
+# Modify if you have specific requirements.
+
+# HITindex annotate Parameters
+ss3buffer: "50"  # intronic buffer region included upstream of 3ss of exon for counting reads
+ss5buffer: "20"  # intronic buffer region included downstream of 5ss of exon for counting reads
+
+# HITindex classify Parameters
+readstrand: "fr-unstrand"  # Directionality of RNA-seq data: '{fr-unstrand,fr-firststrand,fr-secondstrand}
+readtype: "paired"         # Read type: {single,paired}
+overlap: "10"              # Overlap of split read with exon region (nt)
+readnum: "5"               # Minimum number of reads for confidence in HITindex (sum of R + L)
+bootstrap: "1000"          # Bootstrapping iterations to get confidence intervals and p-values
+
+# Note: The above parameters are set to default/recommended values for a standard analysis.
+# If your analysis requires different settings, adjust the parameters accordingly.
+
+
+
+

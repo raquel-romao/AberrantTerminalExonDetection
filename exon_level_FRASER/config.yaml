@@ -1,0 +1,57 @@
+projectTitle: "Detection of expression outliers in first and last exons"
+root: /s/project/first_last_exon/Data/output_data/fraser_nofilter/          # root directory of all output objects and tables
+htmlOutputPath: /s/project/first_last_exon/Data/output_data/fraser_nofilter/html   # path for HTML rendered reports
+indexWithFolderName: true # whether the root base name should be part of the index name
+
+hpoFile: null  # if null, downloads it from webserver
+sampleAnnotation: /s/project/gtex_genetic_diagnosis/v8/sample_annotation.tsv # path to sample annotation (see DROP documentation on how to create it)
+
+geneAnnotation:
+    gencode_v40: /s/project/first_last_exon/Data/input_data/gencode.v40.annotation_sorted2.gtf
+genomeAssembly: hg38
+genome: /s/genomes/human/hg38/hg38.fa # path to reference genome sequence in fasta format.
+    # You can define multiple reference genomes in yaml format, ncbi: path/to/ncbi, ucsc: path/to/ucsc
+    # the keywords that define the path should be in the GENOME column of the sample annotation table
+
+#random_seed: true  # just for demo data, remove for analysis
+
+exportCounts:
+    # specify which gene annotations to include and which
+    # groups to exclude when exporting counts
+    geneAnnotations:
+        - gencode_v40
+    excludeGroups:
+        - null
+
+aberrantSplicing:
+    run: true
+    groups:
+        - Skin_-_Not_Sun_Exposed_Suprapubic
+    #tissues/groups: Heart_-_Left_Ventricle,  --Liver
+    #recount: false
+    #longRead: false
+    #keepNonStandardChrs: false
+    filter: true
+    minExpressionInOneSample: 5
+    quantileMinExpression: 10
+    minDeltaPsi: 0.05
+    implementation: PCA
+    padjCutoff: 0.1
+    maxTestedDimensionProportion: 6
+    genesToTest: null
+    ### FRASER1 configuration
+    #FRASER_version: "FRASER" 
+    #deltaPsiCutoff : 0.3 
+    #quantileForFiltering: 0.95 
+    ### For FRASER2, use the follwing parameters instead of the 3 lines above:
+    FRASER_version: "FRASER2"
+    deltaPsiCutoff : 0.1
+    quantileForFiltering: 0.75
+    
+tools:
+    gatkCmd: gatk
+    bcftoolsCmd: bcftools
+    samtoolsCmd: samtools
+
+    
+    
