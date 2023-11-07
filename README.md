@@ -1,19 +1,19 @@
 # AberrantTerminalExonDetection
 Pipelines for detecting aberrant events in terminal exons of RNA-seq data using adapted versions of OUTRIDER [1] and FRASER [2]. Both of the adapted exon-level tools use as a starting point the HITindex [3] results.
 
+##### References
+[1] OUTRIDER: Brechtmann F, Mertes C, Matusevičiūtė A, et al. OUTRIDER: A Statistical Method for Detecting Aberrantly Expressed Genes in RNA Sequencing Data. Am J Hum Genet. 2018;103(6):907-917. https://doi.org/10.1016/j.ajhg.2018.10.025 | [GitHub](https://github.com/gagneurlab/drop/tree/master/drop/modules/aberrant-expression-pipeline)
+[2] FRASER: Mertes, C., Scheller, I.F., Yépez, V.A. et al. Detection of aberrant splicing events in RNA-seq data using FRASER. Nat Commun 12, 529 (2021). https://doi.org/10.1038/s41467-020-20573-7 | [GitHub](https://github.com/gagneurlab/drop/tree/master/drop/modules/aberrant-splicing-pipeline)
+[3] HITindex: Fiszbein A, McGurk M, Calvo Roitberg E, Kim GY, Burge CB, and Pai AA. (2021). Widespread occurrence of hybrid internal-terminal exons in human transcriptomes. (bioRxiv) doi: https://doi.org/10.1101/2021.05.27.446076 | [GitHub](https://github.com/thepailab/HITindex)
 
-- [1] OUTRIDER: Brechtmann F, Mertes C, Matusevičiūtė A, et al. OUTRIDER: A Statistical Method for Detecting Aberrantly Expressed Genes in RNA Sequencing Data. Am J Hum Genet. 2018;103(6):907-917. https://doi.org/10.1016/j.ajhg.2018.10.025 | [GitHub](https://github.com/gagneurlab/drop/tree/master/drop/modules/aberrant-expression-pipeline)
-- [2] FRASER: Mertes, C., Scheller, I.F., Yépez, V.A. et al. Detection of aberrant splicing events in RNA-seq data using FRASER. Nat Commun 12, 529 (2021). https://doi.org/10.1038/s41467-020-20573-7 | [GitHub](https://github.com/gagneurlab/drop/tree/master/drop/modules/aberrant-splicing-pipeline)
-- [3] HITindex: Fiszbein A, McGurk M, Calvo Roitberg E, Kim GY, Burge CB, and Pai AA. (2021). Widespread occurrence of hybrid internal-terminal exons in human transcriptomes. (bioRxiv) doi: https://doi.org/10.1101/2021.05.27.446076 | [GitHub](https://github.com/thepailab/HITindex)
 
-
-## HITindex pipeline - Starting point for the detection of aberrant events at the exon-level
+## 1. HITindex pipeline - Starting point for the detection of aberrant events at the exon-level
 
   HITindex results are the starting point of the exon-level tools implemented to detect aberrant events in terminal exons. A Snakemake-based workflow that employs the HITindex [3] pipeline was designed to process RNA-seq data to classify reads and calculate HITindex metrics, across samples. It is tailored for use with GTEx samples but can be adapted for other datasets.
   
   The HITindex is a pipeline to classify hybrid, internal, or terminal exons from RNA-seq data by modeling ratios of splice junction coverage. The pipeline involves two major steps:
    
-  - HITindex_annotate: Annotate metaexons from a gtf file by collapsing overlapping consituent exons.
+  - HITindex_annotate: Annotate metaexons from a GTF file by collapsing overlapping constituent exons.
 
   - HITindex_classify: Calculate HIT index metrics and classify metaexons into one of 5 exon-types: first, first-internal, internal, internal-last, and last exons.
   
@@ -41,7 +41,7 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
   Clone the repository and install the required Python packages:
   
     git clone [repository URL]
-    cd HITindex_pipeline
+    cd HITindex
     pip install -r requirements.txt
   
   #### Configuration
