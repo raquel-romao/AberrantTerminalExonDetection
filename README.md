@@ -3,7 +3,7 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
 
 ### Table of contents
 
-1. [HITindex pipeline](https://github.com/raquel-romao/AberrantTerminalExonDetection/edit/main/README.md#1-hitindex-pipeline---starting-point-for-the-detection-of-aberrant-events-at-the-exon-level)
+1. [HITindex pipeline](https://github.com/raquel-romao/AberrantTerminalExonDetection/tree/main#1-hitindex-pipeline---starting-point-for-the-detection-of-aberrant-events-at-the-exon-level)
    
 2.1. [Exon-level OUTRIDER](https://github.com/raquel-romao/AberrantTerminalExonDetection/edit/main/README.md#21-exon-level-outrider)
 
