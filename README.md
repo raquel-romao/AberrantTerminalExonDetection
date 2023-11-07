@@ -3,8 +3,13 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
 
 ##### References
 [1] OUTRIDER: Brechtmann F, Mertes C, Matusevičiūtė A, et al. OUTRIDER: A Statistical Method for Detecting Aberrantly Expressed Genes in RNA Sequencing Data. Am J Hum Genet. 2018;103(6):907-917. https://doi.org/10.1016/j.ajhg.2018.10.025 | [GitHub](https://github.com/gagneurlab/drop/tree/master/drop/modules/aberrant-expression-pipeline)
+
 [2] FRASER: Mertes, C., Scheller, I.F., Yépez, V.A. et al. Detection of aberrant splicing events in RNA-seq data using FRASER. Nat Commun 12, 529 (2021). https://doi.org/10.1038/s41467-020-20573-7 | [GitHub](https://github.com/gagneurlab/drop/tree/master/drop/modules/aberrant-splicing-pipeline)
+
 [3] HITindex: Fiszbein A, McGurk M, Calvo Roitberg E, Kim GY, Burge CB, and Pai AA. (2021). Widespread occurrence of hybrid internal-terminal exons in human transcriptomes. (bioRxiv) doi: https://doi.org/10.1101/2021.05.27.446076 | [GitHub](https://github.com/thepailab/HITindex)
+
+
+
 
 
 ## 1. HITindex pipeline - Starting point for the detection of aberrant events at the exon-level
@@ -64,4 +69,61 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
   #### Output Description
   
   The pipeline generates the same outputs described in the [HITindex GitHub](https://github.com/thepailab/HITindex).
+
+
+## 2. Exon-level OUTRIDER
+
+This repository contains the exon-level adaptation of the OUTRIDER pipeline, which is used to detect aberrant expression events in terminal exons. The pipeline is an extension of the gene-level aberrant expression module from DROP, adapted to work with exon-level data derived from HITindex results.
+
+### Overview
+
+The exon-level OUTRIDER pipeline follows a two-part structure:
+
+1. **Data Preparation**: Instead of using BAM files, this pipeline computes exon expression outliers from HITindex results. A count matrix is generated from the HIT result tables across samples, in particular the upstream and downstream read counts per exon, which is then used to create an OUTRIDER dataset.
+2. **OUTRIDER Fitting**: The pipeline determines the optimal encoding dimension, fits the OUTRIDER model, computes p-values, and extracts results at the exon-level.
+
+
+![adaptedOUTRIDER](https://github.com/raquel-romao/AberrantTerminalExonDetection/assets/92799656/ed7d9372-3aa9-4e36-a67d-1c1236757a3d)
+
+*Figure 1: Adaptation of OUTRIDER for the detection of aberrant expression outliers at the exon-level.*
+
+### Requirements
+
+- R (version specified)
+- OUTRIDER (version specified)
+- Other dependencies listed in `requirements.txt`
+
+### Installation
+
+Clone the repository and install the required R packages:
+
+    git clone https://github.com/raquel-romao/AberrantTerminalExonDetection.git
+    cd exon_level_OUTRIDER
+    Rscript -e 'install.packages(c("required", "packages"))'
+
+### Configuration
+
+Edit wbuild.yaml to adjust the parameters for the analysis. Paths must be set in the YAML headers of the scripts.
+
+### Usage
+
+To run the pipeline, execute the following command:
+
+    snakemake --jobs 1 --cluster "sbatch -N 1 -n 1 -c {threads} --mem {resources.mem_mb}M --parsable"
+
+  Note: Cluster parameters and job management may vary based on your computing environment.
+  
+### Input Data Format
+
+The pipeline expects input data in the form of HITindex result tables, which should contain the variables 'nUP' and 'nDOWN' for each sample.
+
+### Output Description
+
+The pipeline outputs text files with the results of the aberrant expression analysis, similar to the [original tool](https://github.com/gagneurlab/outrider) but at the exon-level (instead of the gene-level).
+
+### Customization
+
+Parameters for the analysis can be adjusted in the wbuild.yaml file. This includes setting thresholds for FPKM filtering, FDR, and Z-score cutoffs.
+
+## 3. Exon-level FRASER
 
