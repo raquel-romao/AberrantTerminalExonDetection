@@ -7,7 +7,7 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
    
 2.1. [Exon-level OUTRIDER](https://github.com/raquel-romao/AberrantTerminalExonDetection/tree/main#21-exon-level-outrider)
 
-2.2. [Exon-level FRASER](https://github.com/raquel-romao/AberrantTerminalExonDetection/edit/main/README.md#22-exon-level-fraser) 
+2.2. [Exon-level FRASER](https://github.com/raquel-romao/AberrantTerminalExonDetection/tree/main#22-exon-level-fraser) 
 
 
 
