@@ -12,8 +12,10 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
   HITindex results are the starting point of the exon-level tools implemented to detect aberrant events in terminal exons. A Snakemake-based workflow that employs the HITindex [3] pipeline was designed to process RNA-seq data to classify reads and calculate HITindex metrics, across samples. It is tailored for use with GTEx samples but can be adapted for other datasets.
   
   The HITindex is a pipeline to classify hybrid, internal, or terminal exons from RNA-seq data by modeling ratios of splice junction coverage. The pipeline involves two major steps:
-    - HITindex_annotate: Annotate metaexons from a gtf file by collapsing overlapping consituent exons.
-    - HITindex_classify: Calculate HIT index metrics and classify metaexons into one of 5 exon-types: first, first-internal, internal, internal-last, and last exons.
+   
+  - HITindex_annotate: Annotate metaexons from a gtf file by collapsing overlapping consituent exons.
+
+  - HITindex_classify: Calculate HIT index metrics and classify metaexons into one of 5 exon-types: first, first-internal, internal, internal-last, and last exons.
   
   
   #### Features
@@ -57,9 +59,9 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
   
   The pipeline expects the following input data:
   - A GTF file sorted by gene -> transcript -> exons. Use [AGAT](https://github.com/NBISweden/AGAT) (agat_convert_sp_gff2gtf.pl) if sorting is required.
-  - A sample annotation file in TSV format (with a similar format to what is described [here](https://gagneurlab-drop.readthedocs.io/en/latest/prepare.html#creating-the-sample-annotation-table) ).
+  - A sample annotation file in TSV format (with a similar format to what is described [here](https://gagneurlab-drop.readthedocs.io/en/latest/prepare.html#creating-the-sample-annotation-table)).
   
   #### Output Description
   
-  The pipeline generates the same outputs described in the [GitHub of HITindex](https://github.com/thepailab/HITindex).
+  The pipeline generates the same outputs described in the [HITindex GitHub](https://github.com/thepailab/HITindex).
 
