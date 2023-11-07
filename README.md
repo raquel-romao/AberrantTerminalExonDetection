@@ -1,5 +1,5 @@
 # AberrantTerminalExonDetection
-Pipelines for detecting aberrant events in terminal exons of RNA-seq data using adapted versions of OUTRIDER [[1]](https://github.com/raquel-romao/AberrantTerminalExonDetection/edit/main/README.md#references) and FRASER [[2]](https://github.com/raquel-romao/AberrantTerminalExonDetection/edit/main/README.md#references). Both of the adapted exon-level tools use as a starting point the HITindex [[3]](https://github.com/raquel-romao/AberrantTerminalExonDetection/edit/main/README.md#references) results.
+Pipelines for detecting aberrant events in terminal exons of RNA-seq data using adapted versions of OUTRIDER [[1]](https://github.com/raquel-romao/AberrantTerminalExonDetection/tree/main#references) and FRASER [[2]](https://github.com/raquel-romao/AberrantTerminalExonDetection/tree/main#references). Both of the adapted exon-level tools use as a starting point the HITindex [[3]](https://github.com/raquel-romao/AberrantTerminalExonDetection/tree/main#references) results.
 
 ### Table of contents
 
