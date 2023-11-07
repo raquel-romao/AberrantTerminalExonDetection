@@ -40,7 +40,7 @@ Pipelines for detecting aberrant events in terminal exons of RNA-seq data using 
   #### Installation
   Clone the repository and install the required Python packages:
   
-    git clone [repository URL]
+    git clone https://github.com/raquel-romao/AberrantTerminalExonDetection.git
     cd HITindex
     pip install -r requirements.txt
   
